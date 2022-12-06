@@ -3,10 +3,7 @@
 # - include at least one of these characters: !, @, $, %, & .include?("")
 
 def valid?(password)
-  password.length > 7 &&
-  (password.include?("@") ||
-  password.include?("$") ||
-  password.include?("%") ||
-  password.include?("&") ||
-  password.include?("!"))
+  return false unless password.length > 7
+  required_characters = ['!', '@', '$', '%', '&']
+  required_characters.map { |c| password.include?(c) }.any?
 end
